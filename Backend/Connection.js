@@ -1,15 +1,15 @@
 import { MongoClient } from "mongodb";
-import { Socket } from "socket.io";
 
 let db;
 
-const dbConnect = async (uri) => {
+const dbConnect = async (url) => {
   try {
     if (db) {
       return db;
     }
     console.log("Connecting to MongoDB...");
-    const client = new MongoClient(uri);
+    console.log('MongoDB URI:', url); // Add this line to debug
+    const client = new MongoClient(url);
     await client.connect();
     console.log("Connected to db");
     db = client;
@@ -20,11 +20,4 @@ const dbConnect = async (uri) => {
   }
 };
 
-// function for connecting a new socket
- const connectSocket = (socket) => {
-  socket.on("disconnect", () => {
-    console.log("disconnected");
-  });
-}
-
-export default { dbConnect, connectSocket };
+export default dbConnect;
