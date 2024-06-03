@@ -1,0 +1,10 @@
+import mongoose from "mongoose";
+
+const screenshotSchema = new mongoose.Schema({
+  screenshot: { type: Buffer, required: true },
+  dateTime: { type: String, required: true },
+});
+
+const Screenshot = mongoose.model("Screenshot", screenshotSchema);
+
+export  {Screenshot};

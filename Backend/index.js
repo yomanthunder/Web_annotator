@@ -10,7 +10,7 @@ const PORT = 3000;
 const app = express();
 app.use(cors());
 // instances of routes from different files
-app.use("/api/scrap", routes);
+app.use("/capture", routes);
 
 app.listen(PORT, async () => {
   try {
