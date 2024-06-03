@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import routes from "./API/Routes/webscrpping.js";
+import route1 from "./API/Routes/capture.js";
 import dbConnect from "./Connection.js";
 import dotenv from 'dotenv';
 
@@ -10,7 +10,7 @@ const PORT = 3000;
 const app = express();
 app.use(cors());
 // instances of routes from different files
-app.use("/capture", routes);
+app.use("/capture", route1);
 
 app.listen(PORT, async () => {
   try {

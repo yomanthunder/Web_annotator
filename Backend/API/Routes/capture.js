@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import puppeteer from 'puppeteer';
-import {dbconnect} from "../../Connection.js";
+import {dbConnect} from "../../Connection.js";
 import { Screenshot } from "../Modal/capture,js";  
 
 
@@ -37,8 +37,11 @@ route1.post("/capture", async (req, res) => {
       });
     
       await browser.close();
-
+      
       try {
+        const db = await dbConnect(process.env.MONGODB_URI); // Get the database instance
+        const collection = db.collection("screenshots"); // Access the "screenshots" collection
+
         const now = new Date();
         const formattedDate = `${now.getFullYear()}-${(now.getMonth() + 1)
           .toString()
@@ -47,7 +50,7 @@ route1.post("/capture", async (req, res) => {
         const dateTime = `${formattedDate} ${formattedTime}`;
     
         // Save the screenshot to the database using the schema
-        await Screenshot.create({ screenshot: buffer, dateTime });
+        await collection.insertOne({ screenshot: buffer, dateTime });
         res.send("Screenshot saved to database.");
       } catch (err) {
         console.error(err);
@@ -56,4 +59,4 @@ route1.post("/capture", async (req, res) => {
  
 })
 
-export default routes;
+export default route1;
