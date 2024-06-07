@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Hello Extensions",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "icons": {
+        "48": "src/assets/icon.png"
+      },
+    "action": {
+      "default_title": "Annotate the web:\n Click ctrl + A to annotate",
+      "default_popup": "popup.html"
+    },
+    
+    "permissions": ["sidePanel", "tabs"],
+    "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+A"
+      }
+    }
+  }
+  }
