@@ -1,8 +1,11 @@
-# React + Vite
+# Web-Annotator
+This is a chrome extension which enable users to annotate web pages and save 'em.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Running this extension
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone this repository.
+2. Do npm install in the root where package.json is located.
+3. Load this directory in Chrome as an [unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
+4. Select a text on any web page.
+5. Enjoy and do tell us about your experience. 
